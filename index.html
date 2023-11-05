@@ -10,76 +10,103 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     
     <style>
-      .navbar {
-        background-color: transparent;
-        border-bottom: none;
-        padding: 2rem 1rem;
-      }
-      .navbar .navbar-nav .nav-link {
-        margin-right: 2rem;
-        font-weight: bold;
-      }
-      .navbar .navbar-nav .nav-link:hover {
-        color: #ddd;
-      }
-      .first-view::before {
-        content: "";
-        display: block;
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-image: url(img/bg-coffee.png);
-        background-size: cover;
-        background-position: center;
-        filter: brightness(70%);
-        z-index: -1;
-      }
+        .navbar-light .navbar-brand {
+            color: #ffecdf; 
+            transition: color 0.3s; 
+        }
+
+        .navbar-light .navbar-brand:hover,
+        .navbar-light .navbar-brand:focus {
+            color: #ffecdf; 
+        }
+        .navbar {
+            background-color: transparent;
+            border-bottom: none;
+            padding: 1rem 1rem;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1020;
+        }
+        .navbar .navbar-nav .nav-link {
+            color: #ffecdf;
+            margin-right: 2rem;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        
+        .navbar .navbar-nav .nav-link:hover {
+            color: #0b9e3e;
+        }
+
+        .first-view::before {
+            content: "";
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url(img/bg-coffee.png);
+            background-size: cover;
+            background-position: center;
+            filter: brightness(60%);
+            z-index: -1;
+        }
 
         .first-view {
-        position: relative;
-        height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        color: #fff;
-        text-align: center;
-        overflow: hidden;
+            padding-top: 56px;
+            position: relative;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            color: #ffecdf;
+            text-align: center;
+            overflow: hidden;
+            font-style:italic;
         }
 
         .first-view > * {
-        position: relative; 
-        z-index: 1;
+            position: relative; 
+            z-index: 1;
         }
 
-      .text-green {
-        color: #28a745; 
-      }
-      .welcome-text{
-        font-size: 40px;
-      }
-      .recommend-text{
-        font-size: 20px;
-      }
-      .img-size{
-        height: auto;
-        width: 20px;
-      }
+        .text-green {
+            color: #ffecdf; 
+        }
+        .welcome-text{
+            font-size: 40px;
+        }
+        .recommend-text{
+            font-size: 20px;
+        }
+        .img-size{
+            height: auto;
+            width: 20px;
+        }
+        .footer{
+            margin-top: -160px;
+            z-index: 1030;
+            position: relative; 
+        }
     </style>
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-light">
-        <a class="navbar-brand" href="#">Remember Coffee</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <div class="navbar-nav ml-auto">
-                <a class="nav-link" href="#">What Coffee</a>
-                <a class="nav-link" href="#">Where Cafe</a>
-                <a class="nav-link" href="#">Contact</a>
+        <div class="container">
+            <a class="navbar-brand" href="#">Remember Coffee</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <div class="navbar-nav ml-auto">
+                    <a class="nav-link" href="#">What Coffee</a>
+                    <a class="nav-link" href="#">Where Cafe</a>
+                    <a class="nav-link" href="#">Contact</a>
+                </div>
             </div>
         </div>
     </nav>
@@ -104,7 +131,7 @@
         </div>
     </main>
 
-    <div class="py-4">
+    <div class="footer">
         <div class="container">
             <div class="d-flex justify-content-end">
                 <div class="flex-column">
@@ -129,8 +156,8 @@
     </div>
 
   </body>
-    <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdS+d5EpRaD1S0kXtbPE6rjffzgVbOrxtQx1GSEeaFqE5rX5e5K5S5j" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script> -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
 </html>
