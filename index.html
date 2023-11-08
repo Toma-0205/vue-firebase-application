@@ -9,6 +9,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+    
     <style>
         .navbar-light .navbar-brand {
             color: #ffecdf; 
@@ -74,14 +75,14 @@
             z-index: 1;
         }
 
-        .text-green {
+        .welcome-text{
+            font-size: 34px;
             color: #ffecdf; 
         }
-        .welcome-text{
-            font-size: 40px;
-        }
+
         .recommend-text{
             font-size: 20px;
+            color: #ffecdf; 
         }
         .img-size{
             height: auto;
@@ -96,7 +97,6 @@
   </head>
   <body>
     <div id="vueapp">
-      <canvas id="star-sky" class="fixed-top" v-show="bgstate"></canvas>
       <nav class="fixed-top d-flex flex-row py-2 justify-content-between align-items-center">
         <div class="d-none d-md-block ml-auto">
           <div class="d-flex flex-row mr-4 mt-2 align-items-center">
@@ -117,80 +117,31 @@
             </div>
           </div>
         </div>
-        <div class="d-block d-md-none mr-2">
+        <div class="d-block d-md-none ml-auto mr-2">
           <button type="button" class="btn btn-light" @click="toggleModal"><i class="fas fa-bars"></i></button>
         </div>
-      </nav>
-      
+      </nav>      
 
       <main class="first-view">
+
         <div class="py-4">
-            <div class="container">
-                <div class="welcome-text text-green">コーヒーの旅へようこそ！</div>
+          <div class="container">
+            <div class="welcome-text">コーヒーの旅へようこそ！</div>
+          </div>
+        </div>
+
+        <div class="py-4">
+            <div class="container text-center">
+              <div class="recommend-text">都内でおすすめのカフェをご紹介いたします。</div>
             </div>
         </div>
 
         <div class="py-4">
-            <div class="container">
-              <div class="recommend-text text-green">都内でおすすめのカフェをご紹介いたします。</div>
-            </div>
-        </div>
-
-        <div class="py-4">
-            <div class="container">
+            <div class="container text-center">
                 <a href="#" class="btn btn-primary btn-lg">おすすめを探す</a>
             </div>
         </div>
-
-        <div id="modal-menu" title="メニュー" header-bg-variant="dark">
-            <div class="py-4 bg-white">
-              <div class="row justify-content-center">
-                <div class="col-8 my-2">
-                  <a href="#" class="btn btn-lg btn-dark btn-block font-14" role="button">
-                    <i class="fas fa-home"></i><span class="ml-1">What Coffee</span>
-                  </a>
-                </div>
-                <div class="col-8 my-2" v-if="iseditor">
-                  <a href="#" class="btn btn-lg btn-dark btn-block font-14" role="button">
-                    <i class="fas fa-user"></i><span class="ml-1">Where Cafe</span>
-                  </a>
-                </div>
-                <div class="col-8 my-2">
-                  <a href="javascript:firebase.auth().signOut()" class="btn btn-lg btn-dark btn-block font-14" role="button">
-                    <i class="fas fa-sign-out-alt"></i><span class="ml-1">Contact</span>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        
       </main>
-    </div>
-
-    <div class="py-4"></div>
-    
-    <div class="footer">
-        <div class="container">
-            <div class="d-flex justify-content-end">
-                <div class="flex-column">
-                    <div class="py-2">
-                        <a href="https://www.instagram.com/tomam_design/" target="_blank" rel="noopener noreferrer">
-                            <img class="img-size" src="img/instagram.jpg" alt="">
-                        </a>
-                    </div>
-                    <div class="py-2">
-                        <a href="https://twitter.com/tomam_engineer" target="_blank" rel="noopener noreferrer">
-                            <img class="img-size" src="img/x-twitter.jpg" alt="">
-                        </a>
-                    </div>
-                    <div class="py-2">
-                        <a href="https://fori.io/25winterhorse" target="_blank" rel="noopener noreferrer">
-                            <img class="img-size" src="img/folio.jpg" alt="">
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
 
   </body>
