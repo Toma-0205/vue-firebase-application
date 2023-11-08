@@ -8,7 +8,7 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
     <style>
         .navbar-light .navbar-brand {
             color: #ffecdf; 
@@ -95,23 +95,35 @@
     </style>
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg navbar-light">
-        <div class="container">
-            <a class="navbar-brand" href="#">Remember Coffee</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <div class="navbar-nav ml-auto">
-                    <a class="nav-link" href="#">What Coffee</a>
-                    <a class="nav-link" href="#">Where Cafe</a>
-                    <a class="nav-link" href="#">Contact</a>
-                </div>
+    <div id="vueapp">
+      <canvas id="star-sky" class="fixed-top" v-show="bgstate"></canvas>
+      <nav class="fixed-top d-flex flex-row py-2 justify-content-between align-items-center">
+        <div class="d-none d-md-block ml-auto">
+          <div class="d-flex flex-row mr-4 mt-2 align-items-center">
+            <div class="px-2">
+              <a href="#" class="text-white font-14">
+                <span class="">What Coffee</span>
+              </a>
             </div>
+            <div class="px-2">
+              <a href="#" class="text-white font-14">
+                <span class="">Where Cafe</span>
+              </a>
+            </div>
+            <div class="px-2">
+              <a href="#" class="text-white font-14">
+                <span class="">Contact</span>
+              </a>
+            </div>
+          </div>
         </div>
-    </nav>
+        <div class="d-block d-md-none mr-2">
+          <button type="button" class="btn btn-light" @click="toggleModal"><i class="fas fa-bars"></i></button>
+        </div>
+      </nav>
+      
 
-    <main class="first-view">
+      <main class="first-view">
         <div class="py-4">
             <div class="container">
                 <div class="welcome-text text-green">コーヒーの旅へようこそ！</div>
@@ -120,7 +132,7 @@
 
         <div class="py-4">
             <div class="container">
-               <div class="recommend-text text-green">都内でおすすめのカフェをご紹介いたします。</div>
+              <div class="recommend-text text-green">都内でおすすめのカフェをご紹介いたします。</div>
             </div>
         </div>
 
@@ -129,8 +141,34 @@
                 <a href="#" class="btn btn-primary btn-lg">おすすめを探す</a>
             </div>
         </div>
-    </main>
 
+        <div id="modal-menu" title="メニュー" header-bg-variant="dark">
+            <div class="py-4 bg-white">
+              <div class="row justify-content-center">
+                <div class="col-8 my-2">
+                  <a href="#" class="btn btn-lg btn-dark btn-block font-14" role="button">
+                    <i class="fas fa-home"></i><span class="ml-1">What Coffee</span>
+                  </a>
+                </div>
+                <div class="col-8 my-2" v-if="iseditor">
+                  <a href="#" class="btn btn-lg btn-dark btn-block font-14" role="button">
+                    <i class="fas fa-user"></i><span class="ml-1">Where Cafe</span>
+                  </a>
+                </div>
+                <div class="col-8 my-2">
+                  <a href="javascript:firebase.auth().signOut()" class="btn btn-lg btn-dark btn-block font-14" role="button">
+                    <i class="fas fa-sign-out-alt"></i><span class="ml-1">Contact</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        
+      </main>
+    </div>
+
+    <div class="py-4"></div>
+    
     <div class="footer">
         <div class="container">
             <div class="d-flex justify-content-end">
@@ -156,6 +194,21 @@
     </div>
 
   </body>
+
+  <script>
+    new Vue({
+      el: '#vueapp',
+      data: {
+        showModal: false
+      },
+      methods: {
+        toggleModal() {
+          this.showModal = !this.showModal;
+        }
+      }
+    });
+  </script>
+
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdS+d5EpRaD1S0kXtbPE6rjffzgVbOrxtQx1GSEeaFqE5rX5e5K5S5j" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
