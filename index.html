@@ -7,8 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+    <link rel="stylesheet" href="lib/bootstrap4.6.min.css">
+    <link rel="stylesheet" href="lib/bootstrap-vue.min.css">
     
     <style>
         .navbar-light .navbar-brand {
@@ -97,6 +98,7 @@
   </head>
   <body>
     <div id="vueapp">
+      
       <nav class="fixed-top d-flex flex-row py-2 justify-content-between align-items-center">
         <div class="d-none d-md-block ml-auto">
           <div class="d-flex flex-row mr-4 mt-2 align-items-center">
@@ -118,48 +120,62 @@
           </div>
         </div>
         <div class="d-block d-md-none ml-auto mr-2">
-          <button type="button" class="btn btn-light" @click="toggleModal"><i class="fas fa-bars"></i></button>
+          <button type="button" class="btn btn-light" @click="hamburgerbtn">
+            <i v-if="!isMenuOpen" class="fas fa-bars"></i>
+            <i v-else class="fas fa-times"></i>
+          </button>
         </div>
-      </nav>      
+      </nav>
+      
+      <div v-if="isMenuOpen" class="py-2">
+        <div class="container">
+          <div class="col-12">
+            <div class="py-2">What Coffee</div>
+          </div>
+          <div class="col-12">
+            <div class="py-2">Where Cafe</div>
+          </div>
+          <div class="col-12">
+            <div class="py-2">Contact</div>
+          </div>
+        </div>
+      </div>      
 
       <main class="first-view">
-
         <div class="py-4">
           <div class="container">
             <div class="welcome-text">コーヒーの旅へようこそ！</div>
           </div>
         </div>
-
         <div class="py-4">
             <div class="container text-center">
               <div class="recommend-text">都内でおすすめのカフェをご紹介いたします。</div>
             </div>
         </div>
-
         <div class="py-4">
             <div class="container text-center">
                 <a href="#" class="btn btn-primary btn-lg">おすすめを探す</a>
             </div>
         </div>
       </main>
-    </div>
 
+    </div>
   </body>
 
+  <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
   <script>
-    new Vue({
+    var vue = new Vue({
       el: '#vueapp',
       data: {
-        showModal: false
+        isMenuOpen: false
       },
       methods: {
-        toggleModal() {
-          this.showModal = !this.showModal;
+        hamburgerbtn() {
+          this.isMenuOpen = !this.isMenuOpen;
         }
       }
     });
   </script>
-
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdS+d5EpRaD1S0kXtbPE6rjffzgVbOrxtQx1GSEeaFqE5rX5e5K5S5j" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
